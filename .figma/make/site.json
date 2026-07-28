@@ -1,0 +1,10 @@
+{
+  "description": "Explore detailed information and interactive maps of six historic Majapahit temples in Mojokerto through a clean, minimalist tourism landing page.",
+  "robots": {
+    "index": false
+  },
+  "accessibility": {
+    "addBypassLinks": false,
+    "ignoreReducedMotion": false
+  }
+}

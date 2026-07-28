@@ -1,0 +1,144 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&display=swap');
+
+@import 'tailwindcss';
+
+* { box-sizing: border-box; }
+
+html, body {
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+  width: 100%;
+  max-width: 100%;
+}
+
+body {
+  background-color: #f5f0e8;
+  color: #0f1c2e;
+  font-family: 'DM Sans', sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 5px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: #ddd5ca; border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: #b5452a; }
+
+/* Font helpers */
+.font-display { font-family: 'DM Sans', sans-serif; }
+
+/* ── Nav link ── */
+.nav-link {
+  color: rgba(15, 28, 46, 0.62);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+.nav-link:hover { color: #0f1c2e; }
+
+/* ── Icon button ── */
+.icon-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+  opacity: 0.55;
+  transition: opacity 0.2s ease;
+}
+.icon-btn:hover { opacity: 1; }
+
+/* ── Terracotta link ── */
+.terra-link {
+  color: #b5452a;
+  text-decoration: none;
+  transition: color 0.2s ease, opacity 0.2s ease;
+}
+.terra-link:hover { color: #d4634a; }
+
+/* ── Primary CTA button ── */
+.cta-primary {
+  background-color: #b5452a;
+  color: #f5f0e8;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+  transition: background-color 0.22s ease, transform 0.18s ease;
+  font-family: 'DM Sans', sans-serif;
+}
+.cta-primary:hover {
+  background-color: #d4634a;
+  transform: translateY(-1px);
+}
+.cta-primary:active { transform: translateY(0); }
+
+/* ── Temple card ── */
+.temple-card {
+  transition:
+    background-color 0.32s ease,
+    box-shadow 0.32s ease,
+    transform 0.28s ease;
+}
+.temple-card:hover { transform: translateY(-3px); }
+
+/* ── Map tab buttons (mobile pills) ── */
+.map-tab-btn {
+  cursor: pointer;
+  transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+  font-family: 'DM Sans', sans-serif;
+}
+
+/* ── Map dropdown button ── */
+#map-dropdown-btn:hover {
+  background-color: rgba(245, 240, 232, 0.12) !important;
+  border-color: rgba(245, 240, 232, 0.25) !important;
+}
+
+/* ── Dropdown item hover ── */
+.map-dropdown-item:hover {
+  background-color: rgba(245, 240, 232, 0.07) !important;
+  color: rgba(245, 240, 232, 0.9) !important;
+}
+
+/* ── Info card CTA ── */
+.info-card-cta {
+  background-color: #b5452a;
+  color: #f5f0e8;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+  font-family: 'DM Sans', sans-serif;
+  transition: background-color 0.22s ease, transform 0.18s ease;
+}
+.info-card-cta:hover {
+  background-color: #d4634a;
+  transform: translateY(-1px);
+}
+
+/* ── Map nav prev/next ── */
+.map-nav-btn {
+  background-color: rgba(245, 240, 232, 0.07);
+  border: 1px solid rgba(245, 240, 232, 0.12);
+  border-radius: 4px;
+  cursor: pointer;
+  color: rgba(245, 240, 232, 0.5);
+  transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+.map-nav-btn:hover {
+  background-color: #b5452a;
+  border-color: #b5452a;
+  color: #f5f0e8;
+}
+
+/* ── Footer links ── */
+.footer-link {
+  color: rgba(245, 240, 232, 0.5);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+.footer-link:hover { color: #f5f0e8; }
+
+/* ── Pin animation ── */
+@keyframes ping-slow {
+  0%, 100% { transform: scale(1); opacity: 0.7; }
+  50% { transform: scale(1.5); opacity: 0; }
+}
+.animate-ping-slow { animation: ping-slow 2.2s ease-in-out infinite; }
