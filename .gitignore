@@ -1,4 +1,29 @@
+# Dependencies
 node_modules/
+
+# Build output
 dist/
+
+# Environment variables
 .env
 .env.local
+.env.*.local
+
+# AI Assistant Files
+AGENTS.md
+CLAUDE.md
+
+# Logs
+*.log
+npm-debug.log*
+pnpm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Editor & IDE
+.vscode/
+.idea/
+
+# OS Generated Files
+.DS_Store
+Thumbs.db
