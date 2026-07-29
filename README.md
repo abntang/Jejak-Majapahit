@@ -32,7 +32,7 @@ The website embraces a *less is more* approach, prioritizing clarity, readabilit
 Clone this repository and install the required dependencies.
 
 ```bash
-git clone https://github.com/your-username/jejak-majapahit.git
+git clone https://github.com/abntang/jejak-majapahit.git
 cd jejak-majapahit
 npm install
 npm run dev
