@@ -42,7 +42,12 @@ export default function App() {
 
       <IntroSection introCards={t.introCards} />
 
-      <CandiListSection temples={temples} lang={lang} t={t} />
+      <CandiListSection
+        temples={temples}
+        lang={lang}
+        t={t}
+        onSelectTemple={setActiveTemple}
+      />
 
       <InteractiveMap
         temples={temples}

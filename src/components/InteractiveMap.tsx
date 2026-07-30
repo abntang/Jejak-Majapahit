@@ -357,6 +357,7 @@ export default function InteractiveMap({
                 }}
                 builtText={t.mapBuilt}
                 openText={t.mapOpen}
+                officialText={t.exploreSite}
               />
             )}
           </div>
@@ -372,12 +373,14 @@ function MapInfoCard({
   onNav,
   builtText,
   openText,
+  officialText,
 }: {
   temple: Temple
   lang: Lang
   onNav: (dir: number) => void
   builtText: string
   openText: string
+  officialText: string
 }) {
   return (
     <div
@@ -460,24 +463,50 @@ function MapInfoCard({
         </span>
 
         {/* Actions */}
-        <div className="flex items-center justify-between pt-1">
-          <a
-            href={`https://maps.google.com/maps?q=${encodeURIComponent(temple.mapsQuery)}`}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 px-4 py-2.5 text-xs font-semibold rounded no-underline transition-colors"
-            style={{ backgroundColor: "#b5452a", color: "#f5f0e8" }}
-            onMouseEnter={(e) =>
-              (e.currentTarget.style.backgroundColor = "#d4634a")
-            }
-            onMouseLeave={(e) =>
-              (e.currentTarget.style.backgroundColor = "#b5452a")
-            }
-          >
-            {openText} <ExternalLink className="w-3.5 h-3.5" />
-          </a>
+        <div className="flex items-center justify-between pt-2 gap-2 flex-wrap">
+          <div className="flex items-center gap-2 flex-wrap">
+            <a
+              href={temple.officialUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-1.5 px-3.5 py-2 text-xs font-semibold rounded no-underline transition-colors shadow-sm"
+              style={{ backgroundColor: "#b5452a", color: "#f5f0e8" }}
+              onMouseEnter={(e) =>
+                (e.currentTarget.style.backgroundColor = "#d4634a")
+              }
+              onMouseLeave={(e) =>
+                (e.currentTarget.style.backgroundColor = "#b5452a")
+              }
+            >
+              <span>{officialText}</span>
+              <ExternalLink className="w-3.5 h-3.5" />
+            </a>
 
-          <div className="flex items-center gap-2">
+            <a
+              href={temple.mapsUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-1.5 px-3 py-2 text-xs font-semibold rounded no-underline transition-colors"
+              style={{
+                backgroundColor: "rgba(245,240,232,0.08)",
+                color: "rgba(245,240,232,0.85)",
+                border: "1px solid rgba(245,240,232,0.15)",
+              }}
+              onMouseEnter={(e) =>
+                (e.currentTarget.style.backgroundColor =
+                  "rgba(245,240,232,0.15)")
+              }
+              onMouseLeave={(e) =>
+                (e.currentTarget.style.backgroundColor =
+                  "rgba(245,240,232,0.08)")
+              }
+            >
+              <MapPin className="w-3.5 h-3.5 text-[#e85d41]" />
+              <span>{openText}</span>
+            </a>
+          </div>
+
+          <div className="flex items-center gap-2 ml-auto">
             <button
               type="button"
               onClick={() => onNav(-1)}
@@ -530,3 +559,4 @@ function MapInfoCard({
     </div>
   )
 }
+

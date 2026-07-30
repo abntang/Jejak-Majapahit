@@ -18,6 +18,8 @@ export interface Temple {
   alt: string
   year: Record<Lang, string>
   mapsQuery: string
+  officialUrl: string
+  mapsUrl: string
   lat: number
   lng: number
 }
@@ -37,6 +39,8 @@ export const temples: Temple[] = [
     alt: "Candi Tikus — kolam petirtaan bata merah era Majapahit",
     year: { ID: "Abad XIV", EN: "14th Century" },
     mapsQuery: "Candi+Tikus+Trowulan+Mojokerto",
+    officialUrl: "https://id.wikipedia.org/wiki/Candi_Tikus",
+    mapsUrl: "https://www.google.com/maps/search/?api=1&query=Candi+Tikus+Trowulan+Mojokerto",
     lat: -7.5606,
     lng: 112.3807,
   },
@@ -54,6 +58,8 @@ export const temples: Temple[] = [
     alt: "Candi Brahu — menara bata merah ikonik Majapahit",
     year: { ID: "Abad XIII–XIV", EN: "13th–14th c." },
     mapsQuery: "Candi+Brahu+Trowulan+Mojokerto",
+    officialUrl: "https://id.wikipedia.org/wiki/Candi_Brahu",
+    mapsUrl: "https://www.google.com/maps/search/?api=1&query=Candi+Brahu+Trowulan+Mojokerto",
     lat: -7.5458,
     lng: 112.3705,
   },
@@ -71,6 +77,8 @@ export const temples: Temple[] = [
     alt: "Gapura Bajang Ratu — gapura paduraksa berukir era Majapahit",
     year: { ID: "Abad XIV", EN: "14th Century" },
     mapsQuery: "Gapura+Bajang+Ratu+Trowulan+Mojokerto",
+    officialUrl: "https://id.wikipedia.org/wiki/Bajang_Ratu",
+    mapsUrl: "https://www.google.com/maps/search/?api=1&query=Gapura+Bajang+Ratu+Trowulan+Mojokerto",
     lat: -7.5639,
     lng: 112.3888,
   },
@@ -88,6 +96,8 @@ export const temples: Temple[] = [
     alt: "Gapura Wringin Lawang — gapura belah dua menara bata Majapahit",
     year: { ID: "Abad XIV", EN: "14th Century" },
     mapsQuery: "Gapura+Wringin+Lawang+Trowulan+Mojokerto",
+    officialUrl: "https://id.wikipedia.org/wiki/Wringin_Lawang",
+    mapsUrl: "https://www.google.com/maps/search/?api=1&query=Gapura+Wringin+Lawang+Trowulan+Mojokerto",
     lat: -7.5442,
     lng: 112.3881,
   },
@@ -105,6 +115,8 @@ export const temples: Temple[] = [
     alt: "Candi Jolotundo — petirtaan suci di lereng Gunung Penanggungan",
     year: { ID: "Abad X", EN: "10th Century" },
     mapsQuery: "Candi+Jolotundo+Trawas+Mojokerto",
+    officialUrl: "https://id.wikipedia.org/wiki/Candi_Jolotundo",
+    mapsUrl: "https://www.google.com/maps/search/?api=1&query=Candi+Jolotundo+Trawas+Mojokerto",
     lat: -7.6075,
     lng: 112.5878,
   },
@@ -122,6 +134,8 @@ export const temples: Temple[] = [
     alt: "Situs Bhre Kahuripan — reruntuhan batu era Majapahit di Sooko",
     year: { ID: "Abad XIV–XV", EN: "14th–15th c." },
     mapsQuery: "Situs+Bhre+Kahuripan+Sooko+Mojokerto",
+    officialUrl: "https://id.wikipedia.org/wiki/Trowulan",
+    mapsUrl: "https://www.google.com/maps/search/?api=1&query=Situs+Bhre+Kahuripan+Sooko+Mojokerto",
     lat: -7.5333,
     lng: 112.4333,
   },
@@ -162,7 +176,8 @@ export const translations = {
     sectionTag: "— Koleksi Situs",
     sectionTitle: ["Daftar Candi & Situs", "Pilihan Mojokerto"],
     viewMap: "Lihat semua di peta",
-    exploreSite: "Jelajahi situs",
+    exploreSite: "Kunjungi Situs Resmi",
+    viewOnMap: "Lihat di Peta",
     noResult: "Tidak ada situs yang cocok dengan pencarian",
     mapTag: "— Sebaran Lokasi",
     mapTitle: "Peta Interaktif",
@@ -170,6 +185,7 @@ export const translations = {
     mapSelect: "Pilih Situs",
     mapBuilt: "Dibangun:",
     mapOpen: "Buka di Google Maps",
+    mapOfficialSite: "Situs Resmi",
     aboutTag: "— Tentang Proyek",
     aboutTitle: "Mendokumentasikan Peradaban yang Membentuk Nusantara",
     aboutP1:
@@ -237,7 +253,8 @@ export const translations = {
     sectionTag: "— Site Collection",
     sectionTitle: ["Featured Temples &", "Heritage Sites"],
     viewMap: "View all on map",
-    exploreSite: "Explore site",
+    exploreSite: "Visit Official Site",
+    viewOnMap: "View on Map",
     noResult: "No sites matched your search",
     mapTag: "— Site Locations",
     mapTitle: "Interactive Map",
@@ -246,6 +263,7 @@ export const translations = {
     mapSelect: "Select Site",
     mapBuilt: "Constructed:",
     mapOpen: "Open in Google Maps",
+    mapOfficialSite: "Official Site",
     aboutTag: "— About the Project",
     aboutTitle: "Documenting the Civilisation That Shaped Nusantara",
     aboutP1:
@@ -275,3 +293,4 @@ export const translations = {
     copyNote: "Dedicated to the preservation of Indonesian cultural heritage.",
   },
 }
+

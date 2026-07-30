@@ -6,13 +6,25 @@ interface CandiListSectionProps {
   temples: Temple[]
   lang: Lang
   t: typeof translations["ID"]
+  onSelectTemple?: (index: number) => void
 }
 
 export default function CandiListSection({
   temples,
   lang,
   t,
+  onSelectTemple,
 }: CandiListSectionProps) {
+  const handleSelect = (index: number) => {
+    if (onSelectTemple) {
+      onSelectTemple(index)
+    }
+    const mapElement = document.getElementById("peta-interaktif")
+    if (mapElement) {
+      mapElement.scrollIntoView({ behavior: "smooth" })
+    }
+  }
+
   return (
     <section
       id="daftar-candi"
@@ -50,15 +62,18 @@ export default function CandiListSection({
       </div>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-        {temples.map((temple) => (
+        {temples.map((temple, index) => (
           <CandiCard
             key={temple.id}
             temple={temple}
             lang={lang}
             tExplore={t.exploreSite}
+            tViewOnMap={t.viewOnMap}
+            onSelect={() => handleSelect(index)}
           />
         ))}
       </div>
     </section>
   )
 }
+

@@ -1,18 +1,34 @@
 import { useState } from "react"
-import { MapPin, ArrowRight } from "lucide-react"
+import { MapPin, ExternalLink, Compass } from "lucide-react"
 import { Temple, Lang } from "@/data/candiData"
 
 interface CandiCardProps {
   temple: Temple
   lang: Lang
   tExplore: string
+  tViewOnMap?: string
+  onSelect?: () => void
 }
 
-export default function CandiCard({ temple, lang, tExplore }: CandiCardProps) {
+export default function CandiCard({
+  temple,
+  lang,
+  tExplore,
+  tViewOnMap = "Lihat di Peta",
+  onSelect,
+}: CandiCardProps) {
   const [hovered, setHovered] = useState(false)
+
+  const handleCardClick = () => {
+    if (onSelect) {
+      onSelect()
+    }
+  }
+
   return (
     <div
-      className="relative overflow-hidden cursor-pointer flex flex-col"
+      onClick={handleCardClick}
+      className="relative overflow-hidden cursor-pointer flex flex-col group"
       style={{
         backgroundColor: hovered ? "#0f1c2e" : "#ede8e0",
         border: "1px solid #ddd5ca",
@@ -43,13 +59,13 @@ export default function CandiCard({ temple, lang, tExplore }: CandiCardProps) {
           }}
         />
         <span
-          className="absolute top-3.5 left-3.5 text-xs px-2.5 py-1 font-semibold text-white rounded"
+          className="absolute top-3.5 left-3.5 text-xs px-2.5 py-1 font-semibold text-white rounded shadow-sm"
           style={{ backgroundColor: temple.categoryColor, opacity: 0.92 }}
         >
           {temple.category[lang]}
         </span>
         <span
-          className="absolute top-3.5 right-3.5 text-xs px-2 py-1 font-medium rounded"
+          className="absolute top-3.5 right-3.5 text-xs px-2 py-1 font-medium rounded shadow-sm"
           style={{ backgroundColor: "rgba(15,28,46,0.78)", color: "#f5f0e8" }}
         >
           {temple.year[lang]}
@@ -78,22 +94,49 @@ export default function CandiCard({ temple, lang, tExplore }: CandiCardProps) {
           {temple.name[lang]}
         </h3>
         <p
-          className="text-sm leading-relaxed flex-1 transition-colors"
+          className="text-sm leading-relaxed flex-1 transition-colors mb-5"
           style={{ color: hovered ? "rgba(245,240,232,0.8)" : "#334155" }}
         >
           {temple.description[lang]}
         </p>
-        <div
-          className="mt-5 flex items-center gap-1.5 text-xs font-bold tracking-wide transition-all"
-          style={{ color: hovered ? "#e8c4b8" : "#b5452a" }}
-        >
-          {tExplore}
-          <ArrowRight
-            className="w-3.5 h-3.5 transition-transform"
-            style={{ transform: hovered ? "translateX(4px)" : "translateX(0)" }}
-          />
+
+        {/* Action Buttons */}
+        <div className="mt-auto flex items-center justify-between gap-2 pt-2 border-t border-slate-300/30">
+          <a
+            href={temple.officialUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            onClick={(e) => e.stopPropagation()}
+            className="inline-flex items-center gap-1.5 px-3 py-2 text-xs font-bold rounded tracking-wide no-underline transition-all shadow-sm"
+            style={{
+              backgroundColor: hovered ? "#b5452a" : "#0f1c2e",
+              color: "#ffffff",
+            }}
+          >
+            <span>{tExplore}</span>
+            <ExternalLink className="w-3.5 h-3.5" />
+          </a>
+
+          <button
+            type="button"
+            onClick={(e) => {
+              e.stopPropagation()
+              handleCardClick()
+            }}
+            className="inline-flex items-center gap-1 text-xs font-semibold px-2.5 py-2 rounded transition-colors cursor-pointer"
+            style={{
+              color: hovered ? "#e8c4b8" : "#b5452a",
+              backgroundColor: hovered
+                ? "rgba(245,240,232,0.08)"
+                : "rgba(181,69,42,0.06)",
+            }}
+          >
+            <Compass className="w-3.5 h-3.5" />
+            <span>{tViewOnMap}</span>
+          </button>
         </div>
       </div>
     </div>
   )
 }
+
